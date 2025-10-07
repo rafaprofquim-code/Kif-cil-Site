@@ -70,3 +70,79 @@ h1 {
   }
   .kf-nav-toggle:checked ~ .kf-menu{ display:flex; }
 }
+/* Base: evita que padding quebre o layout */
+* { box-sizing: border-box; }
+
+/* Imagens e ícones nunca maiores que o contêiner */
+img { max-width: 100%; height: auto; }
+
+/* Vídeos responsivos (YouTube) */
+.videom { position: relative; width: 100%; max-width: 900px; margin: 24px auto; }
+.videom iframe { width: 100%; aspect-ratio: 16/9; height: auto; border: 0; }
+
+/* ---- QUEBRAS DE LAYOUT ---- */
+
+/* Tablets e menores */
+@media (max-width: 900px) {
+
+  /* seus “cards/botões” (links grandes) */
+  .icons,
+  .grid-atalhos,
+  .grid-mapas { 
+    display: grid;
+    grid-template-columns: 1fr;   /* um por linha */
+    gap: 18px;
+    padding: 0 16px;
+  }
+
+  /* link-botão (ajuste conforme a sua classe) */
+  .icons a,
+  .card,
+  .card-mapa {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 14px 16px;
+    box-shadow: 6px 6px 0 #ff4eb8;
+  }
+
+  /* título grande */
+  h1 { 
+    font-size: clamp(1.6rem, 4.5vw + .4rem, 2.2rem);
+    text-align: center;
+    margin: 12px 0 8px;
+  }
+
+  /* ícones decorativos (YouTube/cérebro/instagram etc.) */
+  .icone, .icons img { 
+    width: 44px;   /* era grande no desktop */
+    height: auto;
+  }
+
+  /* espaçamentos gerais */
+  .videom { padding: 0 12px; }
+}
+
+/* Celulares pequenos */
+@media (max-width: 600px) {
+  .icons a,
+  .card,
+  .card-mapa { 
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  /* imagens de “volumes” */
+  .imgmapas { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+    padding: 0 16px; 
+    margin: 24px 0;
+  }
+  .imgmapas img { 
+    width: 100%;          /* ocupa a largura do cartão */
+    max-width: 360px;     /* mas não passa disso */
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+}
