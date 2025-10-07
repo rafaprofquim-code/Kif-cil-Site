@@ -1,0 +1,72 @@
+body{background-image: url("../imagens/background.png");}
+.logo {width: 30%;
+  display: block;
+  margin: 0 auto ;  /* centraliza horizontalmente */
+}
+
+
+.icons {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* alinha verticalmente */
+  gap: 20px;               /* espaço entre as imagens */
+  flex-wrap: wrap;         /* quebra linha se for necessário */
+}
+.icons img:hover {
+  transform: rotate(-5deg) scale(1.05);
+  transition: 0.3s ease;
+}
+.grid-mapas {
+  display: flex;               /* coloca as imagens lado a lado */
+  justify-content: center;     /* centraliza no eixo X */
+  gap: 40px;                   /* espaço entre elas */
+  flex-wrap: wrap;             /* quebra linha em telas menores */
+  margin: 40px 40;              /* espaço acima e abaixo */
+}
+
+.card-mapa img {
+  width: 500px;                /* define a largura das imagens */
+  height: auto;                /* mantém proporção */
+  box-shadow: 6px 6px 0 #552366, 0 0 15px rgba(255, 78, 184, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.grid-mapas img:hover {
+  transform: scale(1.05);      /* leve zoom ao passar o mouse */
+}
+h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 3rem;          /* aumenta o tamanho da fonte */
+  text-align: center;       /* centraliza horizontalmente */
+  color: #552366;           /* muda a cor do texto (rosa KiFácil) */
+  margin-top: 40px;         /* espaço acima do título */
+}
+/* Header */
+.kf-header{
+  position: sticky; top: 0; z-index: 50;
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1100px; margin:0 auto; padding:10px 16px;
+  background: transparent; }  /* mantém seu fundo */
+
+.kf-menu{ display:flex; gap:14px; }
+.kf-menu a{
+  text-decoration:none; color:#111; font-weight:700;
+  padding:8px 14px; border:2px solid #111; border-radius:12px; background:#fff;
+  box-shadow:6px 6px 0 #ff4eb8; transition:.2s;
+}
+.kf-menu a:hover{ transform: translateY(-3px); box-shadow:9px 9px 0 #ff4eb8; }
+.kf-menu a.active{ background:#ffe6f7; }
+
+/* Mobile */
+.kf-nav-toggle{ display:none; }
+.kf-hamburger{ display:none; font-size:1.6rem; cursor:pointer; }
+
+@media (max-width: 880px){
+  .kf-hamburger{ display:block; }
+  .kf-menu{
+    position: absolute; left:0; right:0; top:58px;
+    display:none; flex-direction:column; gap:10px;
+    background:#fff; padding:12px 16px; border-bottom:2px solid #111; box-shadow:0 6px 0 #ff4eb8;
+  }
+  .kf-nav-toggle:checked ~ .kf-menu{ display:flex; }
+}
